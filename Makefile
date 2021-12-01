@@ -66,9 +66,9 @@ _RPI_ROOTFS_TYPE = ${shell bash -c " \
 	case '$(ARCH)' in \
 		arm) \
 			case '$(BOARD)' in \
-				rpi|zero|zerow) echo 'rpi';; \
-				rpi2|rpi3|zero2w) echo 'rpi-2';; \
-				rpi4) echo 'rpi-4';; \
+				rpi|zero|zerow) echo 'rpi-latest';; \
+				rpi2|rpi3|zero2w) echo 'rpi-armv7';; \
+				rpi4) echo 'rpi-latest';; \
 				generic) echo 'armv7';; \
 			esac;; \
 		aarch64) \
