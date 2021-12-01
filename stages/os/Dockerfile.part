@@ -9,7 +9,9 @@ RUN rm -f /etc/localtime \
 
 RUN echo "HOOKS=(base udev block filesystems)" >> /etc/mkinitcpio.conf
 
-RUN echo "Server = $REPO_URL/\$arch/\$repo" > /etc/pacman.d/mirrorlist \
+RUN echo "Server = https://files.pikvm.org/repos/arch/rpi2" > /etc/pacman.d/mirrorlist
+
+RUN echo "Server = $REPO_URL/\$arch/\$repo" >> /etc/pacman.d/mirrorlist \
 	&& pacman-key --init \
 	&& pacman-key --populate archlinuxarm
 
@@ -27,6 +29,7 @@ RUN pacman --noconfirm --ask=4 -Syy \
 		ca-certificates \
 		ca-certificates-mozilla \
 		ca-certificates-utils \
+		libarchive \
 	&& pacman --needed --noconfirm --ask=4 -S \
 		base \
 		base-devel \
